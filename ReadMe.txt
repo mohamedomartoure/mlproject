@@ -36,4 +36,11 @@
     4. Create 'logger.py', 'exception.py' 'utils.py' modules(files) into `src`
 
     5. Write CostumerException class code into exception.py in order to extend Exception Base Class and get a detailled message error along w logs
-    6. Create log directory and save logs files within a format
+    6. Create log directory and save logs files within a format. Use a logger to log other modules
+
+    
+    # Day 3
+
+    1. Create notebook folder into mlproject for notebook files (eda,trainer)
+    2. Create into notebook, folder named data with the csv file
+    

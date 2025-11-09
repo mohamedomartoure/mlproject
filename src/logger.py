@@ -19,7 +19,10 @@ logging.basicConfig(
 )   
 
 # log exception info
-logger = logging.getLogger(__name__)
+# def get_logger(name: str = None):
+#     return logging.getLogger(name)
+
+logger = logging.getLogger(None)
 
 if __name__ == "__main__":
     logging.info("Logging setup complete. Log file created at: %s", LOG_FILE_PATH)
