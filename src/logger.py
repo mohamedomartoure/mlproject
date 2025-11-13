@@ -1,7 +1,6 @@
 import logging
 import os
 from datetime import datetime
-import exception
 
 # Create logs directory with current timestamp
 LOG_FILE=f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
@@ -18,13 +17,6 @@ logging.basicConfig(
     level=logging.INFO,
 )   
 
-# log exception info
-# def get_logger(name: str = None):
-#     return logging.getLogger(name)
-
-logger = logging.getLogger(None)
-
-if __name__ == "__main__":
-    logging.info("Logging setup complete. Log file created at: %s", LOG_FILE_PATH)
+logger = logging.getLogger()
   
 

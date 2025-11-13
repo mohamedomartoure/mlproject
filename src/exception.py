@@ -1,6 +1,5 @@
 import sys
-import logger
-import logging
+from src.logger import logger
 
 def error_message_detail(error, error_detail: sys):
     """error_message_detail function to get the file name and line number where exception occurred
@@ -29,19 +28,18 @@ class CustomException(Exception):
     """
 
     def __init__(self, error_message, error_detail: sys):
-        
         super().__init__(error_message)
         self.error_message = error_message_detail(error_message, error_detail)
-
-        logger.logger.exception(self.error_message)
+        logger.exception(self.error_message)
 
     def __str__(self):
         return self.error_message
     
 
-# Test the CustomException class and store the log using logging module
-if __name__ == "__main__":
-    try:
-        a = 1 / 0
-    except Exception as e:
-        raise CustomException(e, sys)
+# # Test the CustomException class and store the log using logging module
+# if __name__ == "__main__":
+#     try:
+#         logger.info('Division par zero')
+#         a = 1 / 0
+#     except Exception as e:
+#         raise CustomException(e, sys)

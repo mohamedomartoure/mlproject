@@ -43,4 +43,7 @@
 
     1. Create notebook folder into mlproject for notebook files (eda,trainer)
     2. Create into notebook, folder named data with the csv file
-    
+
+
+    # Day 4 
+    1. data_ingestion
