@@ -18,13 +18,16 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig():
+    """Configuration for data transformation."""
     preprocessor_obj_file_path = os.path.join('artifacts', 'prepocessor.pkl')
 
 class DataTransformation():
+    """Transformation of the data."""
     def __init__(self):
         self.data_transformation_config = DataTransformationConfig()
 
     def get_data_transformer_object(self):
+        """Returns a ColumnTransformer object for preprocessing the data."""
         try:
             numerical_columns = ['reading_score','writing_score']
             categorical_columns = ['gender','race_ethnicity','parental_level_of_education'
@@ -61,6 +64,7 @@ class DataTransformation():
             raise CustomException(e, sys)
 
     def initiate_data_transformation(self, train_path, test_path):
+        """Returns the transformed data."""
         try:
             train_df = pd.read_csv(train_path)
             test_df = pd.read_csv(test_path)
@@ -69,8 +73,8 @@ class DataTransformation():
             prepocessing_obj = self.get_data_transformer_object()
             logger.info("Prepocessor object obtained!")
 
-
             target_col_name = 'math_score'
+            logger.info("Target column name specified!")
 
             input_feature_train_df = train_df.drop(columns=[target_col_name], axis=1)
             target_feature_train_df = train_df[target_col_name]
@@ -92,6 +96,7 @@ class DataTransformation():
             test_arr = np.c_[
                 input_feature_test_arr, np.array(target_feature_test_df)
             ]
+            # save the preprocessor object `utils.py`
             save_object(
                 file_path = self.data_transformation_config.preprocessor_obj_file_path,
                 obj = prepocessing_obj

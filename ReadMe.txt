@@ -50,5 +50,8 @@
         - add '.artifcats' to environments in `.gitignore` file
 
 # Day 5
-    2. data_transformation
+    1. data_transformation
         - add 'create_object' function to `utils.py`
+
+# Day 6
+    1. data_trainer
