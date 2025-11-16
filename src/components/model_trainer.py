@@ -87,11 +87,6 @@ class ModelTrainer():
                 obj= best_model
             )
             logger.info("Best Model Object saved!")
-
-            # test of prediction
-            # y_test_pred = best_model.predict(X_test)
-            # r2_square = r2_score(y_test, y_test_pred)
-            # return r2_square
         
             return model_report, best_model_name, best_model_score
         
